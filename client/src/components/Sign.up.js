@@ -1,7 +1,35 @@
-import React from "react";
+import React,{useState} from "react";
 
 function SignUp() {
-    return <div>SignUp</div>
+    const [user, setUser] = useState(null);
+
+    return <div className="signUp">
+        <label>SignUP</label>
+        <input 
+            placeholder="First Name" 
+            onChange={(event) => {
+                setUser({...user, firstName: event.target.value})
+            }}
+        />
+          <input 
+            placeholder="Last Name" 
+            onChange={(event) => {
+                setUser({...user, lastName: event.target.value})
+            }}
+        />
+        <input 
+            placeholder="Username" 
+            onChange={(event) => {
+                setUser({...user, username: event.target.value})
+            }}
+        />
+        <input 
+            placeholder="Password" 
+            onChange={(event) => {
+                setUser({...user, password: event.target.value})
+            }}
+        />
+        </div>
 }
 
 export default SignUP;
