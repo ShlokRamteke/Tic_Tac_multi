@@ -1,8 +1,26 @@
 import React,{useState} from "react";
+import Axios from "axios";
+import Cookies from "universal-cookie"
+
+
 
 function SignUp() {
+    const cookies = new Cookies();
     const [user, setUser] = useState(null);
-    const signUp = () => {};
+    
+    const signUp = () => {
+        Axios.post("http://localhost:3001/signUp", user)
+        .then(res => {
+            const { token, userId, firstName, lastName, username, hasedPassword} =res.data;
+
+            cookies.set("token", token);
+            cookies.set("userId", userId);
+            cookies.set("username", username);
+            cookies.set("firstName", firstName);
+            cookies.set("lastName", lastName);
+            cookies.set("hasedPassword", hasedPassword);
+        });
+    };
     return (
     <div className="signUp">
         <label>Sign Up</label>
