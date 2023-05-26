@@ -2,9 +2,10 @@ import React,{useState} from "react";
 
 function SignUp() {
     const [user, setUser] = useState(null);
-
-    return <div className="signUp">
-        <label>SignUP</label>
+    const signUp = () => {};
+    return (
+    <div className="signUp">
+        <label>Sign Up</label>
         <input 
             placeholder="First Name" 
             onChange={(event) => {
@@ -29,7 +30,9 @@ function SignUp() {
                 setUser({...user, password: event.target.value})
             }}
         />
+        <button onClick={signUp}>SignUp</button>
         </div>
+    );
 }
 
-export default SignUP;
+export default SignUp;
